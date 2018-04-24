@@ -14,8 +14,8 @@
     "build": "node fuse build && tsc",
     "release": "node fuse release --production",
     "watch": "run-p watch.*",
-    "watch.ts": "nodemon --ext ts --watch src -x  \"tsc\"",
-    "watch.bundle": "nodemon --watch src/public -x  \"node fuse build\""
+    "watch.ts": "nodemon --ext ts --ignore src/public --watch src \"tsc\"",
+    "watch.bundle": "nodemon -e \"ts css\" --watch src/public --exec node fuse.js build"
   },
   "devDependencies": {
     "@fortawesome/fontawesome": "^1.1.5",

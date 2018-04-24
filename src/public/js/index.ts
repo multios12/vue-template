@@ -14,7 +14,7 @@ import '../css/style.css';
 import '../css/navbar-top-fixed.css';
 
 import vue from 'vue';
-
+  
 var vm = new vue({
     el: '#tickets',
     data: {
