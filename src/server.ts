@@ -1,12 +1,8 @@
 #!/usr/bin/env node
 
-/**
- * Module dependencies.
- */
-
 var app = require('./app');
 var debug = require('debug')('bootstraptemplate:server');
-var http = require('http');
+import http from 'http';
 
 /**
  * Get port from environment and store in Express.
