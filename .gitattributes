@@ -1,2 +1,2 @@
-webpack.config.js linguist-vendored
-/src/public/*.html linguist-vendored
+webpack.config.js    linguist-vendored
+/src/public/*.html   linguist-vendored

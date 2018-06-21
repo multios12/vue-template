@@ -1,71 +1,43 @@
 <template>
   <div>
   <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <b-navbar-brand class="navbar-brand" href="#">vue-template</b-navbar-brand>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault"
       aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Home
-            <span class="sr-only">(current)</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#">Disabled</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
-            aria-expanded="false">Dropdown</a>
-          <div class="dropdown-menu" aria-labelledby="dropdown01">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </div>
-        </li>
-      </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><span class="fas fa-search"></span>Search</button>
-      </form>
-    </div>
+    <b-collapse is-nav id="navbarsExampleDefault">
+      <b-navbar-nav class="mr-auto">
+        <b-nav-item active href="#">Home</b-nav-item>
+        <b-nav-item href="#">Link</b-nav-item>
+        <b-nav-item disabled href="#">Disabled</b-nav-item>
+        <b-nav-item-dropdown text="Dropdown">
+          <b-dropdown-item href="#">Action</b-dropdown-item>
+          <b-dropdown-item href="#">Action2</b-dropdown-item>
+          <b-dropdown-item href="#">Action3</b-dropdown-item>
+
+        </b-nav-item-dropdown>
+      </b-navbar-nav>
+
+      <b-navbar-nav class="mr-auto">
+        <b-form inline class="my-2 my-lg-0">
+          <b-form-input class="mr-sm-2"></b-form-input>
+          <b-button outline-success class="my-2 my-sm-0" type="submit"><span class="fas fa-search"></span>Search</b-button>
+        </b-form>
+      </b-navbar-nav>
+    </b-collapse>
   </nav>
 
   <main role="main" class="container">
-    <div id="listContainer" class="container">
-      <h2><span class="fas fa-table"></span>リストのサンプル</h2>
-      <div id="listSection" class="table-responsive">
+    <b-card id="listCard" title="リストサンプル">
         <p>更新日：
           <span id="update">未取得</span>
         </p>
-        <table id="tickets" class="table table-striped table-hover table-autofilter">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th class="table-filterable">ステータス</th>
-              <th>開始日</th>
-              <th>題名</th>
-            </tr>
-          </thead>
-          <tbody id="tableBody" class="list" v-for="item in items" v-bind:key="item">
-            <tr>
-              <td>{{ item.no }}</td>
-              <td>開始</td>
-              <td>2012/01/01</td>
-              <td>{{ item.name }}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
+        <b-table hover :items="items">
+        </b-table>
+    </b-card>
   </main>
-
   </div>
 </template>
 
