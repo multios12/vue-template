@@ -1,6 +1,5 @@
 <template>
-  <div>
-  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+  <b-navbar toggleable="md" type="dark" variant="dark" fixed>
     <b-navbar-brand class="navbar-brand" href="#">vue-template</b-navbar-brand>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault"
       aria-expanded="false" aria-label="Toggle navigation">
@@ -10,7 +9,7 @@
     <b-collapse is-nav id="navbarsExampleDefault">
       <b-navbar-nav class="mr-auto">
         <b-nav-item active href="#">Home</b-nav-item>
-        <b-nav-item href="#">Link</b-nav-item>
+        <b-nav-item href="#/page2">page2</b-nav-item>
         <b-nav-item disabled href="#">Disabled</b-nav-item>
         <b-nav-item-dropdown text="Dropdown">
           <b-dropdown-item href="#">Action</b-dropdown-item>
@@ -27,42 +26,5 @@
         </b-form>
       </b-navbar-nav>
     </b-collapse>
-  </nav>
-
-  <main role="main" class="container">
-    <b-card id="listCard" title="リストサンプル">
-        <p>更新日：
-          <span id="update">未取得</span>
-        </p>
-        <b-table hover :items="items">
-        </b-table>
-    </b-card>
-  </main>
-  </div>
+  </b-navbar>
 </template>
-
-<script lang="ts">
-import Vue from "vue";
-import moment from "moment";
-
-export default Vue.extend({
-  data() {
-    return {
-      items: [
-        {
-          name: "テスト",
-          no: 1,
-        }
-      ]
-    };
-  }
-});
-</script>
-
-<style>
-body {
-  padding: 50px;
-  min-height: 75rem;
-  padding-top: 4.5rem;
-}
-</style>
