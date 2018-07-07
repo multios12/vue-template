@@ -1,25 +1,23 @@
 import express, { NextFunction } from 'express';
 import fs from 'fs';
 import path from 'path';
-// import compression from "compression";
 var createError = require('http-errors');
-//var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var app = express();
 
-// app.use(compression());
 app.use(logger('dev'));
 
 // browser-sync Setup 
-if (app.get('env') == 'development') {
-  var browserSync = require('browser-sync');
-  var connectBrowserSync = require('connect-browser-sync');
+// if (app.get('env') == 'development') {
+//   var browserSync = require('browser-sync');
+//   var connectBrowserSync = require('connect-browser-sync');
 
-  var browserSyncConfigurations = { "files": path.join(__dirname, "../views/*") };
-  app.use(connectBrowserSync(browserSync(browserSyncConfigurations)));
-}
+//   var browserSyncConfigurations = { "files": path.join(__dirname, "../views/*") };
+//   app.use(connectBrowserSync(browserSync(browserSyncConfigurations)));
+// }
 
+app.use(require("compression")());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, '../sample')));
