@@ -22,7 +22,7 @@ export default Vue.extend({
       items: [
         {
           name: "テスト",
-          no: 1,
+          no: 1
         }
       ]
     };
