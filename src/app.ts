@@ -2,11 +2,8 @@ import express, { NextFunction } from 'express';
 import fs from 'fs';
 import path from 'path';
 var createError = require('http-errors');
-var logger = require('morgan');
 
 var app = express();
-
-app.use(logger('dev'));
 
 // browser-sync Setup 
 // if (app.get('env') == 'development') {
@@ -17,7 +14,6 @@ app.use(logger('dev'));
 //   app.use(connectBrowserSync(browserSync(browserSyncConfigurations)));
 // }
 
-app.use(require("compression")());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, '../sample')));
@@ -26,7 +22,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', require('./routes/index'));
 
 app.use(function (req: express.Request, res: express.Response, next: Function) { next(createError(404)) });
-
 app.use(function (err: any, req: express.Request, res: express.Response, next: Function) {
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
