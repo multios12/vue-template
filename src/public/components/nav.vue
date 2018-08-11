@@ -15,7 +15,6 @@
           <b-dropdown-item href="#">Action</b-dropdown-item>
           <b-dropdown-item href="#">Action2</b-dropdown-item>
           <b-dropdown-item href="#">Action3</b-dropdown-item>
-
         </b-nav-item-dropdown>
       </b-navbar-nav>
 
